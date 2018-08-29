@@ -18,19 +18,20 @@ Extras:
 """
 
 a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+n = int(input("Please choose a number: "))
+less_n = []
 
 
-def less_then_five(a: 'list') -> 'list':
-    less_five = []
-    for item in a:
-        if item < 5:
-            less_five.append(item)
-    print(less_five)
+def less_then_number(lst_num: 'list') -> 'list':
+    for item in lst_num:
+        if item < n:
+            less_n.append(item)
+    print(less_n)
 
 
 # Extra 2 solution
-print([x for x in a if x < 5])
+print([x for x in a if x < n])
 
 
 if __name__ == "__main__":
-    less_then_five(a)
+    less_then_number(a)
