@@ -16,3 +16,14 @@ Extras:
    elements from the original list a that are smaller than that number
    given by the user.
 """
+
+
+def less_then_five(a: 'list'):
+    for item in a:
+        if item < 5:
+            print(item)
+
+
+if __name__ == "__main__":
+    a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    less_then_five(a)
