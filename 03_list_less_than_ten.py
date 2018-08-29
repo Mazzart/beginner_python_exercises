@@ -17,6 +17,8 @@ Extras:
    given by the user.
 """
 
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
 
 def less_then_five(a: 'list') -> 'list':
     less_five = []
@@ -26,6 +28,9 @@ def less_then_five(a: 'list') -> 'list':
     print(less_five)
 
 
+# Extra 2 solution
+print([x for x in a if x < 5])
+
+
 if __name__ == "__main__":
-    a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     less_then_five(a)
