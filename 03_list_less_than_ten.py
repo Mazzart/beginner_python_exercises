@@ -18,10 +18,12 @@ Extras:
 """
 
 
-def less_then_five(a: 'list'):
+def less_then_five(a: 'list') -> 'list':
+    less_five = []
     for item in a:
         if item < 5:
-            print(item)
+            less_five.append(item)
+    print(less_five)
 
 
 if __name__ == "__main__":
