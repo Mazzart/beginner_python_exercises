@@ -18,6 +18,9 @@ while True:
         player_1 = input("First player enter your choice: ")
         player_2 = input("Second player enter your choice: ")
         player_3 = input("Third player enter your choice: ")
+        p_1, p_2, p_3 = player_1.lower(), player_2.lower(), player_3.lower()
+        if p_1 == p_2 and p_1 == p_3:
+            print("It is a draw.")
     else:
         print("OK, see you later.")
         break
