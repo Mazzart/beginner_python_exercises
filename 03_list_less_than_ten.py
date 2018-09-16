@@ -23,6 +23,9 @@ less_n = []
 
 
 def less_then_number(lst_num: 'list') -> 'list':
+   """
+   Prints out all the elements of the list that are less than entered number.
+   """
     for item in lst_num:
         if item < n:
             less_n.append(item)
