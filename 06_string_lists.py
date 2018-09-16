@@ -15,6 +15,7 @@ else:
 def is_palindrome(s):
 
     def to_chars(s):
+        """Return string with all lowercase letters and without punctuation"""
         s = s.lower()
         ans = ''
         for char in s:
@@ -23,6 +24,7 @@ def is_palindrome(s):
         return ans
 
     def is_pal(s):
+        """Return True if the string is a palindrome and False otherwise"""
         if len(s) <= 1:
             return True
         else:
