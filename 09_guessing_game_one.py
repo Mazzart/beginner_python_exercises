@@ -16,7 +16,7 @@ secret_number = random.randrange(1, 9)
 def guessing_number(secret, l, h):
     count = 0
     while True:
-        guess = int(input("Please guess number between {} and {}: ".format(l, h)))
+        guess = int(input(f"Please guess number between {l} and {h}: "))
         count += 1
         if guess > secret:
             print("Secret number is lower then your number.")
