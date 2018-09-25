@@ -10,21 +10,27 @@ Keep track of how many guesses the user has taken, and when the game ends, print
 """
 import random
 
-low = 1
-high = 9
-secret_number = random.randrange(low, high+1)
+secret_number = random.randrange(1, 9)
 
 
 def guessing_number(secret, l, h):
+    count = 0
     while True:
         guess = int(input("Please guess number between {} and {}: ".format(l, h)))
+        count += 1
         if guess > secret:
             print("Secret number is lower then your number.")
         elif guess < secret:
             print("Secret number is higher then your number.")
         else:
-            print("You are right. The secret number is {}".format(guess))
-            break
+            print(f"You are right. The secret number is {guess}.")
+            print(f"You took {count} guesses.")
+            game_status = input("Enter 'exit' to finish the game: ")
+            if game_status == 'exit':
+                break
+            else:
+                secret = random.randrange(1, 9)
+                count = 0
 
 
-guessing_number(secret_number, low, high)
+guessing_number(secret_number, 1, 9)
