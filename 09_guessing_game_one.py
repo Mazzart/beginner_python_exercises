@@ -10,17 +10,22 @@ Keep track of how many guesses the user has taken, and when the game ends, print
 """
 import random
 
-secret_number = random.randrange(1, 9)
 
-
-def guessing_number(secret, l, h):
+def guessing_number(l, h):
+    """
+    Find the secret number generated randomly between l and h.
+    :param l: start number
+    :param h: stop number
+    :return: int - secret_number between l and h
+    """
+    secret_number = random.randrange(l, h)
     count = 0
     while True:
         guess = int(input(f"Please guess number between {l} and {h}: "))
         count += 1
-        if guess > secret:
+        if guess > secret_number:
             print("Secret number is lower then your number.")
-        elif guess < secret:
+        elif guess < secret_number:
             print("Secret number is higher then your number.")
         else:
             print(f"You are right. The secret number is {guess}.")
@@ -29,8 +34,8 @@ def guessing_number(secret, l, h):
             if game_status == 'exit':
                 break
             else:
-                secret = random.randrange(1, 9)
+                secret_number = random.randrange(l, h)
                 count = 0
 
 
-guessing_number(secret_number, 1, 9)
+guessing_number(1, 9)
