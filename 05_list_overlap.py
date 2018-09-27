@@ -11,19 +11,15 @@ Extras:
 import random
 
 # Random generation of two lists
-length_first_list = int(input("Please enter the length of the first list (<101): "))
-length_second_list = int(input("Please enter the length of the second list (<101): "))
-first_list = random.sample(range(100), length_first_list)
-second_list = random.sample(range(100), length_second_list)
+len_first_list = int(input("Please enter the length of the first list (<101): "))
+len_second_list = int(input("Please enter the length of the second list (<101): "))
+first_list = random.sample(range(100), len_first_list)
+second_list = random.sample(range(100), len_second_list)
 
 
-def common_in_list(list_1: 'list', list_2: 'list') -> 'list':
+def common_in_list(list_1: list, list_2: list) -> list:
     """Returns a list that contains common elements in two lists"""
-    if len(list_1) >= len(list_2):
-        new_list = [item for item in list_1 if item in list_2]
-    else:
-        new_list = [item for item in list_2 if item in list_1]
-    return new_list
+    return [i for i in list_1 if i in list_2]
 
 
 if __name__ == "__main__":
