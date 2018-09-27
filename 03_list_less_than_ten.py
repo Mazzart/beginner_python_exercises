@@ -22,14 +22,14 @@ n = int(input("Please choose a number: "))
 less_n = []
 
 
-def less_then_number(lst_num: 'list') -> 'list':
-   """
-   Prints out all the elements of the list that are less than entered number.
-   """
+def less_then_number(lst_num: list) -> list:
+    """
+    Prints out all the elements of the list that are less than entered number.
+    """
     for item in lst_num:
         if item < n:
             less_n.append(item)
-    print(less_n)
+    return less_n
 
 
 # Extra 2 solution
@@ -37,4 +37,4 @@ print([x for x in a if x < n])
 
 
 if __name__ == "__main__":
-    less_then_number(a)
+    print(less_then_number(a))
