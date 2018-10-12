@@ -12,7 +12,7 @@ def binary_search(list: list, value: int) -> int:
     '''Search algorithm that finds the positions of a target value'''
     list.sort() # binary search works for sorted list
     low = 0
-    high = list.index(list[-1])
+    high = len(list) - 1
     while low <= high:
         mid = (low + high) // 2
         if list[mid] > value:
