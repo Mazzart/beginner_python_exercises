@@ -1,5 +1,5 @@
 # beginner_python_exercises
-Solutions for 36 beginner Python exercises from practicepython.org (the file name starts from 01 to 36).
+Solutions for 36 beginner Python exercises from practicepython.org (directory 1-36 with the file names from 01 to 36).
 
 Other files include solutions for various tasks:
 1) the program that generates a list of prime numbers in a given range (list_of_prime_numbers.py)
