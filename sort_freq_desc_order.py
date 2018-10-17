@@ -1,6 +1,7 @@
 import random
 from collections import Counter
 
+
 def sort_freq_desc_order(list: list) -> list:
     '''Sorts the list by the frequency of entry in a descending order'''
     c = Counter(list)
