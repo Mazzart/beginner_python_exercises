@@ -9,3 +9,4 @@ Other files include solutions for various tasks:
 5) the program does the same thing as bubble_sort_even_odd.py but with another algorithm (another_sort_even_odd.py)
 6) the program searches the position of a value in the generated list (binary_search.py)
 7) the program finds the largest common divisor for two numbers (greater_common_divisor.py)
+8) the program generates a sorted list of numbers by the frequency of entry in a descending order (sort_freq_desc_order.py)
