@@ -10,3 +10,4 @@ Other files include solutions for various tasks:
 6) the program searches the position of a value in the generated list (binary_search.py)
 7) the program finds the largest common divisor for two numbers (greater_common_divisor.py)
 8) the program generates a sorted list of numbers by the frequency of entry in a descending order (sort_freq_desc_order.py)
+9) the program sorts a list of Fibonacci numbers using selection sort (selection_sort_fibonacci_list.py)
