@@ -5,6 +5,7 @@ while True:
         n = int(input('Enter the length of the list (positive integer): '))
         list_1 = random.sample(range(n*10), n)
         list_2 = random.sample(range(n*10), n)
+        list_3 = random.sample(range(n*10), n)
         break
     except ValueError:
         print('Please, try again...')
@@ -30,3 +31,13 @@ for i in range(n):
     )
 
 print(list_2)
+
+# Solution 3
+index = 0
+while index != len(list_3):
+    for i in range(index, len(list_3)):
+        if list_3[i] < list_3[index]:
+            list_3[index], list_3[i] = list_3[i], list_3[index]
+    index += 1
+
+print(list_3)
