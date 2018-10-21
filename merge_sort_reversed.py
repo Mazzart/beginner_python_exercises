@@ -25,6 +25,3 @@ def merge_sort_recur(L):
         left = merge_sort_recur(L[:middle])
         right = merge_sort_recur(L[middle:])
         return merge_sort(left, right)
-
-
-print(merge_sort_recur([1, 100, 23, 56, 43, 9, 5, 16, 67, 32]))
