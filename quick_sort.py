@@ -1,5 +1,6 @@
 def quick_sort(list_num: list) -> list:
     '''Return a sorted list in ascending order'''
+    
     if len(list_num) < 2:
         return list_num
     else:
