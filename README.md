@@ -12,3 +12,4 @@ Other files include solutions for various tasks:
 8) the program generates a sorted list of numbers by the frequency of entry in a descending order (sort_freq_desc_order.py)
 9) the program sorts a list of Fibonacci numbers using selection sort (selection_sort_fibonacci_list.py)
 10) the program sorts list of numbers in reversed order using merge sort (merge_sort_reversed.py)
+11) the program sorts list of numbers using quick sort (quick_sort.py)
