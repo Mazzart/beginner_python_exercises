@@ -1,10 +1,12 @@
 import random
 
-while True:
+checker = True
+
+while checker:
     try:
         n = int(input('Enter the length of the list (positive integer): '))
         rand_list = random.sample(range(n*10), n)
-        break
+        checker = False
     except ValueError:
         print('Please, try again...')
 
