@@ -12,20 +12,22 @@ while checker:
 
 print(rand_list)
 
+
 def even_odd_sort(array: list, array_len: int) -> list:
-    left, right = 0, len(rand_list) - 1
+    left, right = 0, array_len - 1
     k = 0
-    while(left < right):
-        while(rand_list[left] % 2 == 0):
+    while left < right:
+        while array[left] % 2 == 0:
             left += 1
             k += 1
-        while(rand_list[right] % 2 != 0 and left < right):
+        while array[right] % 2 != 0 and left < right:
             right -= 1
-        if (left < right):
-            rand_list[left], rand_list[right] = rand_list[right], rand_list[left]
+        if left < right:
+            array[left], array[right] = array[right], array[left]
 
-    even, odd = rand_list[:k], rand_list[k:]
+    even, odd = array[:k], array[k:]
     even.sort(), odd.sort()
     return even + odd
+
 
 print(even_odd_sort(rand_list, len(rand_list)))
