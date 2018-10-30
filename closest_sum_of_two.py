@@ -1,6 +1,8 @@
 import random
 
 sum_of_two, closest_num = 0, 0
+position_i = None
+position_j = None
 checker = True
 
 while checker:
@@ -27,9 +29,7 @@ while i < j:
         i += 1
 
 # next 3 lines for cases when sum_of_two always greater then number
-# then closest number will be sum of the first two elements of the list
 if closest_num == 0:
-    closest_num = rand_list[0] + rand_list[1]
-    position_i, position_j = 0, 1
+    print("The sum of two closest numbers is not found.")
 
 print(rand_list, closest_num, 'less:', position_i, 'greater:', position_j)
