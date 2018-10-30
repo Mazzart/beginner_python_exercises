@@ -1,5 +1,5 @@
-def greater_common_divisor(a, b):
-    '''Finds the largest common divisor for two numbers.'''
+def greater_common_divisor(a: int, b: int) -> int:
+    """Finds the largest common divisor for two numbers."""
     if b == 0:
         return a
     else:
