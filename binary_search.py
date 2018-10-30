@@ -1,47 +1,57 @@
 import random
 
-while True:
+checker = True
+
+while checker:
     try:
         n = int(input('Enter the length of the list (positive integer): '))
-        rand_list = random.sample(range(n*10), n)
-        break
+        rand_list = random.sample(range(n * 10), n)
+        checker = False
     except ValueError:
         print('Please, try again...')
 
+
 # Solution 1
-def binary_search(list: list, value: int) -> int:
-    '''Search algorithm that finds the positions of a target value'''
-    list.sort() # binary search works for sorted list
+
+
+def binary_search(array: list, value: int) -> str:
+    """Search algorithm that finds the positions of a target value"""
+    array.sort()  # binary search works for sorted list
     low = 0
-    high = len(list) - 1
+    high = len(array) - 1
     while low <= high:
         mid = (low + high) // 2
-        if list[mid] > value:
-            high = mid -1
+        if array[mid] > value:
+            high = mid - 1
         else:
-            if list[mid] < value:
+            if array[mid] < value:
                 low = mid + 1
             else:
-                return mid
-    return -1
+                return f"The number you are looking for is in position {mid} in the list."
+    return "Number is not found in the list."
+
 
 # Solution 2 (is number in list)
-def bisect_search(L: list, e: int) -> bool:
-    L.sort() # binary search works for sorted list
-    def bisect_search_helper(L: list, e: int, low: int, high: int) -> bool:
+
+
+def bisect_search(array: list, e: int) -> bool:
+    array.sort()  # binary search works for sorted list
+
+    def bisect_search_helper(arr: list, val: int, low: int, high: int) -> bool:
         if high == low:
-            return L[low] == e
+            return arr[low] == val
         mid = (low + high) // 2
-        if L[mid] == e:
+        if arr[mid] == val:
             return True
-        elif L[mid] > e:
-            if low == mid: # nothing left to search
+        elif arr[mid] > val:
+            if low == mid:  # nothing left to search
                 return False
             else:
-                return bisect_search_helper(L, e, low, mid-1)
+                return bisect_search_helper(arr, val, low, mid-1)
         else:
-            return bisect_search_helper(L, e, mid+1, high)
-    if len(L) == 0:
+            return bisect_search_helper(arr, val, mid+1, high)
+
+    if len(array) == 0:
         return False
     else:
-        return bisect_search_helper(L, e, 0, len(L)-1)
+        return bisect_search_helper(array, e, 0, len(array)-1)
