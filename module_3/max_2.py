@@ -1,4 +1,5 @@
 import random
+import time
 from collections import deque
 
 # Task 1
@@ -38,7 +39,7 @@ for i in range(1, len(rand_list)):
         j -= 1
     rand_list[j+1] = k
 
-print(rand_list)
+print("Task 1:", rand_list)
 
 # Task 2 - Binary search
 # https://github.com/Mazzart/beginner_python_exercises/blob/master/binary_search.py
@@ -60,13 +61,34 @@ while checker_5:
     except ValueError:
         print('Please, try again...')
 
+start_time = time.time()
 count = 0
-for i in range(n):
-    for j in range(n):
+
+for i in range(len(rand_list_5)):
+    for j in range(len(rand_list_5)):
         if rand_list_5[i] > rand_list_5[j] and i < j:
             count += 1
 
-print(count)
+print(f"{time.time() - start_time} seconds")
+
+
+def count_insertions(array: list) -> int:
+    start_time_1 = time.time()
+    new_count = 0
+
+    if len(array) < 2:
+        new_count = 0
+    else:
+        for i in range(len(array)):
+            for j in range(i + 1, len(array)):
+                if array[i] > array[j] and i < j:
+                    new_count += 1
+
+    print(f"{time.time() - start_time_1} seconds")
+    return new_count
+
+
+print(count, count_insertions(rand_list_5))
 
 # Task 6 - BFS (breadth-first search) from book Грокаем Алгоритмы
 graph = dict()
@@ -86,7 +108,7 @@ def search(name: str):
     searched = []
 
     while search_queue:  # while queue not empty
-        print(searched)
+        print("What we already searched:", searched)
         person = search_queue.popleft()  # take first person
         if person not in searched:
             if person_is_seller(person):
@@ -99,8 +121,8 @@ def search(name: str):
 
 
 def person_is_seller(name):
-    answer = input(f"{name}, are you a mango seller? ")
+    answer = input(f"{name}, are you a mango seller? (yes or no) ")
     return answer == 'yes'
 
 
-print(search("you"))
+search("you")
