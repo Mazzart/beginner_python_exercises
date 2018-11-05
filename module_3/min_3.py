@@ -87,7 +87,7 @@ print("Output list L_3:", L_3)
 # ----------------------------------------------------------------------
 # Task 4 - Reverse list using recursion
 # ----------------------------------------------------------------------
-L_4 = random.sample(range(1, 20), 10)  # create list with 10 items in the range from 1 to 100 using random module
+L_4 = random.sample(range(1, 20), 10)  # create list with 10 items in the range from 1 to 20 using random module
 print("Input list L_4:", L_4)
 
 
