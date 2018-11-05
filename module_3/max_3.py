@@ -1,5 +1,3 @@
-# TODO: add comments to Tasks 3, 5 and do Tasks 3, 5
-
 import random
 
 # ---------------------------------------------------------------------
@@ -25,11 +23,24 @@ print(f"Factorial of {n_1}! is {fact_of_n_1}")
 # ---------------------------------------------------------------------
 # Task 3 - Sorting in the form of waves (a1 >= a2 <= a3 >= a4 <= ...)
 # ---------------------------------------------------------------------
+L_3 = random.sample(range(1, 100), 10)  # create list with 10 items in the range from 1 to 100 using random module
+print("Input list L_3:", L_3)
+L_3.sort()  # list L_3 is sorted using method sorts
 
+wavy_L_3 = []  # create empty list
+i, j = 0, -1  # initialize variables
+
+while i != len(L_3) // 2:  # condition (when i is equal half the length of the list) to exit the while loop
+    wavy_L_3.append(L_3[j])  # add to the wavy_L_3 elements by one from second half of the L_3
+    wavy_L_3.append(L_3[i])  # add to the wavy_L_3 elements by one from first half of the L_3
+    i += 1  # increase variable i by one
+    j -= 1  # reduce variable j by one
+
+print("Output list L_3:", wavy_L_3)
 # ---------------------------------------------------------------------
 # Task 4
 # ---------------------------------------------------------------------
-L_4 = random.sample(range(1, 100), 11)  # create list with 10 items in the range from 1 to 100 using random module
+L_4 = random.sample(range(1, 100), 10)  # create list with 10 items in the range from 1 to 100 using random module
 print("Input list L_4:", L_4)
 
 even_part = [i for i in L_4 if i % 2 == 0]  # create list with even numbers from L_4
