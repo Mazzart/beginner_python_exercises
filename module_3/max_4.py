@@ -75,31 +75,30 @@ L_4 = random.sample(range(1, 100), 11)  # create list with 10 items in the range
 print("\nTask 4 answer:\nInput list L_4:", L_4)
 
 
-def heap_sort(li):
-    """"""
+def heap_sort(array: list) -> list:
+    """Return sorted list using heap sort"""
 
-    def down_heap(li, k, n):
-        """"""
-        new_elem = li[k]
+    def down_heap(array, k, n):
+        """Build the heap in array so that largest value is at the root"""
+        new_elem = array[k]
         while k <= n / 2:
             child = 2 * k
-            if child < n and li[child] < li[child + 1]:
+            if child < n and array[child] < array[child + 1]:
                 child += 1
-            if new_elem >= li[child]:
+            if new_elem >= array[child]:
                 break
-            li[k] = li[child]
+            array[k] = array[child]
             k = child
-        li[k] = new_elem
+        array[k] = new_elem
 
-    size = len(li)
+    size = len(array)
     for i in range(round(size / 2 - 1), -1, -1):
-        down_heap(li, i, size - 1)
+        down_heap(array, i, size - 1)
     for i in range(size - 1, 0, -1):
-        temp = li[i]
-        li[i] = li[0]
-        li[0] = temp
-        down_heap(li, 0, i - 1)
-    return li
+        array[i], array[0] = array[0], array[i]
+        down_heap(array, 0, i - 1)
+
+    return array
 
 
 print("Output list L_4:", heap_sort(L_4))
