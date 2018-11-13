@@ -52,8 +52,8 @@ countries = get_tags_info(COUNTRY_TAG, example_page)
 
 # iterates through pages and adds countries on the page to the list of countries
 for page in range(1, 26):
-    url = base_url + 'page'
-    example_page = get_page_from_server(url)
+    next_page = base_url + 'page'
+    example_page = get_page_from_server(next_page)
     countries.extend(get_tags_info(COUNTRY_TAG, example_page))
 
 print(countries)
