@@ -3,7 +3,7 @@
 from urllib.request import urlopen, Request
 
 # start page for getting information
-example_url = "http://example.webscraping.com/"
+base_url = "http://example.webscraping.com/places/default/index/"
 
 
 def get_page_from_server(page_url: str) -> str:  # getting page from server
@@ -45,9 +45,15 @@ def get_tags_info(tag: str, page: str) -> list:
     return countries_list
 
 
-example_page = get_page_from_server(example_url)
+example_page = get_page_from_server(base_url)
 COUNTRY_TAG = '<img src="/places/static/images/flags/'
+# list of countries from the first page
 countries = get_tags_info(COUNTRY_TAG, example_page)
 
-for country in countries:
-    print(country)
+# iterates through pages and adds countries on the page to the list of countries
+for page in range(1, 26):
+    url = base_url + 'page'
+    example_page = get_page_from_server(url)
+    countries.extend(get_tags_info(COUNTRY_TAG, example_page))
+
+print(countries)
