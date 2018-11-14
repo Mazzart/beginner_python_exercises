@@ -1,9 +1,17 @@
+"""There are four tasks in this program:
+Task 1: Fast sorting
+Task 2: Closest sum of 2 numbers in the list to the entered number
+Task 3: Smallest sum of 2 numbers that are formed from the list of digits
+Task 4: Heap sort
+"""
+
 import random
 
 # ---------------------------------------------------------------------
 # Task 1 - Fast sorting
 # ---------------------------------------------------------------------
-L_1 = random.sample(range(1, 100), 10)  # create list with 10 items in the range from 1 to 100 using random module
+# create list with 10 items in the range from 1 to 100 using random module
+L_1 = random.sample(range(1, 100), 10)
 print("Task 1 answer:\nInput list L_1:", L_1)
 
 
@@ -15,8 +23,10 @@ def quick_sort_growing(list_num: list) -> list:
     else:
         # randomly choose a number from list_num and write it to the variable pivot
         pivot = list_num[random.choice(range(len(list_num)))]
-        less_part = [i for i in list_num[:] if i < pivot]  # create list where all numbers is less than pivot
-        greater_part = [i for i in list_num[:] if i > pivot]  # create list where all numbers is greater than pivot
+        # create list where all numbers is less than pivot
+        less_part = [i for i in list_num[:] if i < pivot]
+        # create list where all numbers is greater than pivot
+        greater_part = [i for i in list_num[:] if i > pivot]
         # recursive call of the function with less part (greater part) until base case
         return quick_sort_growing(less_part) + [pivot] + quick_sort_growing(greater_part)
 
@@ -62,16 +72,44 @@ if closest_num == 0:
 # otherwise print result
 else:
     print("\nTask 2 answer:\nInput list:", L_2)
-    print("Closest number is:", closest_num, "which is the sum of two numbers:", (L_2[position_i], L_2[position_j]))
+    print("Closest number is:", closest_num,
+          "which is the sum of two numbers:",
+          (L_2[position_i], L_2[position_j]))
 # ---------------------------------------------------------------------
 # Task 3 - Find the smallest sum of two numbers that are formed from
 # the list of digits. [4, 3, 8, 6, 1] -> 184 (148 + 36)
 # ---------------------------------------------------------------------
+lst = [random.choice(range(10)) for i in range(5)]
+example_lst = [4, 3, 8, 6, 1]
+print("\nTask 3 answer:")
+print(f"Input lists: {lst, example_lst}")
 
+
+def min_sum(array):
+    """Return smallest sum of 2 numbers
+       that are formed from the list of digits"""
+
+    array.sort()
+
+    x = y = 0
+    for num in range(len(array)):
+        if num % 2 != 0:
+            x = x * 10 + array[num]
+        else:
+            y = y * 10 + array[num]
+
+    print(f"First number: {x}")
+    print(f"Second number: {y}")
+    return x + y
+
+
+print(f"Sum for the lst: {min_sum(lst)}")
+print(f"Sum for the example_lst: {min_sum(example_lst)}")
 # ---------------------------------------------------------------------
 # Task 4 - Heap sort
 # ---------------------------------------------------------------------
-L_4 = random.sample(range(1, 100), 11)  # create list with 10 items in the range from 1 to 100 using random module
+# create list with 10 items in the range from 1 to 100 using random module
+L_4 = random.sample(range(1, 100), 11)
 print("\nTask 4 answer:\nInput list L_4:", L_4)
 
 
