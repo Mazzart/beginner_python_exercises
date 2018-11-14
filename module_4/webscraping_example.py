@@ -1,4 +1,7 @@
-"""This program prints a list of countries from the http://example.webscraping.com/"""
+"""This program prints a list of countries from the http://example.webscraping.com/
+Asks the user to enter the country name from the list of the countries.
+Prints following information about country: area, population, capital, currency name.
+"""
 
 from urllib.request import urlopen, Request
 
