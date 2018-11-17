@@ -3,6 +3,8 @@ Asks the user to enter the country name from the list of the countries.
 Prints following information about country: area, population, capital, currency name.
 """
 
+import random
+import time
 from urllib.request import urlopen, Request
 
 # start page for getting information
@@ -56,6 +58,7 @@ countries_dict = {'0': countries}
 
 # iterates through pages and adds countries on the page to the list of countries
 for page_number in range(1, 26):
+    time.sleep(random.randint(1, 10))
     next_page = base_url + str(page_number)
     example_page = get_page_from_server(next_page)
     current_countries = get_tags_info(COUNTRY_TAG, example_page, 11)  # third argument is additional characters
@@ -80,8 +83,10 @@ country_page = get_page_from_server(country_url)
 COUNTRY_TAG_INFO = '<td class="w2p_fw">'
 country_info = get_tags_info(COUNTRY_TAG_INFO, country_page)
 
-print(f"Information about {country_name.replace('-', ' ').upper()}\n")
+print(f"\nInformation about {country_name.replace('-', ' ').upper()}\n")
 print(f"Area: {country_info[1]}")
 print(f"Population: {country_info[2]}")
+print(f"ISO 3166: {country_info[3]}")
 print(f"Capital: {country_info[5]}")
 print(f"Currency name: {country_info[9]}")
+print(f"Phone: {country_info[10]}")
