@@ -61,7 +61,8 @@ for page_number in range(1, 26):
     time.sleep(random.randint(1, 10))
     next_page = base_url + str(page_number)
     example_page = get_page_from_server(next_page)
-    current_countries = get_tags_info(COUNTRY_TAG, example_page, 11)  # third argument is additional characters
+    # third argument is additional characters
+    current_countries = get_tags_info(COUNTRY_TAG, example_page, 11)
     countries.extend(current_countries)
     countries_dict[str(page_number)] = current_countries
 
@@ -74,10 +75,12 @@ for page_number, country_list in countries_dict.items():
     if country_name in country_list:
         next_page = base_url + page_number
 
-country_index = countries.index(country_name) + 1  # finds position of the user country in the list of countries
+# finds position of the user country in the list of countries
+country_index = countries.index(country_name) + 1
 country_name = country_name.replace(' ', '-')  # convert name of the country to the url format
 # country page for getting information
-country_url = 'http://example.webscraping.com/places/default/view/' + country_name + str(country_index)
+country_url_base = 'http://example.webscraping.com/places/default/view/'
+country_url = country_url_base + country_name + str(country_index)
 country_page = get_page_from_server(country_url)
 
 COUNTRY_TAG_INFO = '<td class="w2p_fw">'
