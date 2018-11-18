@@ -3,12 +3,12 @@
 - unicode code points
 - бінарне представлення
 """
+USER_NAME = input("Please, enter your name: ")
 # ---------------------------------------------------------------------
 # Sequence of bytes
 # The rules for translating a Unicode string into a sequence of bytes
 # are called an encoding.
 # ---------------------------------------------------------------------
-USER_NAME = input("Please, enter your name: ")
 # UTF-8 uses the following rules:
 # 1) If the code point is < 128, it’s represented by the corresponding
 # byte value.
@@ -17,24 +17,21 @@ USER_NAME = input("Please, enter your name: ")
 # and 255.
 USER_NAME_BYTES = USER_NAME.encode('utf-8')
 
-print(f"Hello, {USER_NAME}. "
-      f"\nYour name as sequence of bytes will be: {USER_NAME_BYTES}\n"
-      f"Type: {type(USER_NAME_BYTES)}")
+print(f"\nYour name as sequence of bytes will be: {USER_NAME_BYTES}\n"
+      f"Type: {type(USER_NAME_BYTES)}\n")
 # ---------------------------------------------------------------------
 # Unicode code points (UCP)
 # Literal strings are unicode by default in Python 3
 # ---------------------------------------------------------------------
-USER_NAME = input("Please, enter your name: ")
 USER_NAME_UCP = ""
 
 for letter in USER_NAME:
     USER_NAME_UCP += "{:04x}".format(ord(letter))[1:]
 
-print(f"Your name in binary representation will be: {USER_NAME_UCP}")
+print(f"Your name in unicode code points: {USER_NAME_UCP}\n")
 # ---------------------------------------------------------------------
 # Binary representation
 # ---------------------------------------------------------------------
-USER_NAME = input("Please, enter your name: ")
 USER_NAME_BINARY = ''.join(format(ord(letter), 'b') for letter in USER_NAME)
 
 print(f"Your name in binary representation: {USER_NAME_BINARY}")
