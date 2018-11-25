@@ -8,7 +8,7 @@ import time
 from urllib.request import urlopen, Request
 
 # start page for getting information
-base_url = "http://example.webscraping.com/places/default/index/"
+BASE_URL = "http://example.webscraping.com/places/default/index/"
 
 
 def get_page_from_server(page_url: str) -> str:  # getting page from server
@@ -38,7 +38,7 @@ def get_tags_info(tag: str, page: str, additional_characters=0) -> list:
 
         # finds the country and adds it to the list of countries
         for item in page[start_value:]:
-            if item != "<":
+            if item != '<':
                 result += item
             else:
                 countries_list.append(result)
@@ -50,46 +50,46 @@ def get_tags_info(tag: str, page: str, additional_characters=0) -> list:
     return countries_list
 
 
-example_page = get_page_from_server(base_url)
+EXAMPLE_PAGE = get_page_from_server(BASE_URL)
 COUNTRY_TAG = '<img src="/places/static/images/flags/'
 # list of countries from the first page
-countries = get_tags_info(COUNTRY_TAG, example_page, 11)  # third argument is additional characters
-countries_dict = {'0': countries}
+COUNTRIES = get_tags_info(COUNTRY_TAG, EXAMPLE_PAGE, 11)  # third argument is additional characters
+COUNTRIES_DICT = {'0': COUNTRIES}
 
 # iterates through pages and adds countries on the page to the list of countries
 for page_number in range(1, 26):
-    time.sleep(random.randint(1, 10))
-    next_page = base_url + str(page_number)
-    example_page = get_page_from_server(next_page)
+    time.sleep(random.randint(1, 5))
+    next_page = BASE_URL + str(page_number)
+    EXAMPLE_PAGE = get_page_from_server(next_page)
     # third argument is additional characters
-    current_countries = get_tags_info(COUNTRY_TAG, example_page, 11)
-    countries.extend(current_countries)
-    countries_dict[str(page_number)] = current_countries
+    current_countries = get_tags_info(COUNTRY_TAG, EXAMPLE_PAGE, 11)
+    COUNTRIES.extend(current_countries)
+    COUNTRIES_DICT[str(page_number)] = current_countries
 
-print(countries)
+print(COUNTRIES)
 
-country_name = input("Enter the name of the country from the previous list: ")
+COUNTRY_NAME = input("Enter the name of the country from the previous list: ")
 
 # finds on what page is the country that the user asks
-for page_number, country_list in countries_dict.items():
-    if country_name in country_list:
-        next_page = base_url + page_number
+for page_number, country_list in COUNTRIES_DICT.items():
+    if COUNTRY_NAME in country_list:
+        next_page = BASE_URL + page_number
 
 # finds position of the user country in the list of countries
-country_index = countries.index(country_name) + 1
-country_name = country_name.replace(' ', '-')  # convert name of the country to the url format
+COUNTRY_INDEX = COUNTRIES.index(COUNTRY_NAME) + 1
+COUNTRY_NAME = COUNTRY_NAME.replace(' ', '-')  # convert name of the country to the url format
 # country page for getting information
-country_url_base = 'http://example.webscraping.com/places/default/view/'
-country_url = country_url_base + country_name + str(country_index)
-country_page = get_page_from_server(country_url)
+COUNTRY_URL_BASE = 'http://example.webscraping.com/places/default/view/'
+COUNTRY_URL = COUNTRY_URL_BASE + COUNTRY_NAME + str(COUNTRY_INDEX)
+COUNTRY_PAGE = get_page_from_server(COUNTRY_URL)
 
 COUNTRY_TAG_INFO = '<td class="w2p_fw">'
-country_info = get_tags_info(COUNTRY_TAG_INFO, country_page)
+COUNTRY_INFO = get_tags_info(COUNTRY_TAG_INFO, COUNTRY_PAGE)
 
-print(f"\nInformation about {country_name.replace('-', ' ').upper()}\n")
-print(f"Area: {country_info[1]}")
-print(f"Population: {country_info[2]}")
-print(f"ISO 3166: {country_info[3]}")
-print(f"Capital: {country_info[5]}")
-print(f"Currency name: {country_info[9]}")
-print(f"Phone: {country_info[10]}")
+print(f"\nInformation about {COUNTRY_NAME.replace('-', ' ').upper()}\n")
+print(f"Area: {COUNTRY_INFO[1]}")
+print(f"Population: {COUNTRY_INFO[2]}")
+print(f"ISO 3166: {COUNTRY_INFO[3]}")
+print(f"Capital: {COUNTRY_INFO[5]}")
+print(f"Currency name: {COUNTRY_INFO[9]}")
+print(f"Phone: {COUNTRY_INFO[10]}")
