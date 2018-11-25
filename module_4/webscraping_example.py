@@ -11,11 +11,16 @@ from urllib.request import urlopen, Request
 BASE_URL = "http://example.webscraping.com/places/default/index/"
 
 
+def get_request_headers():
+    """Return information for headers"""
+
+    return {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6)'}
+
+
 def get_page_from_server(page_url: str) -> str:  # getting page from server
     """Return information about the page in the string format"""
 
-    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6)'}
-    request = Request(page_url, headers=headers)
+    request = Request(page_url, headers=get_request_headers())
     page = urlopen(request).read()
 
     return str(page)
