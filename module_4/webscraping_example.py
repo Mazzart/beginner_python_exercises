@@ -5,6 +5,7 @@ Prints following information about country: area, population, capital, currency 
 
 import random
 import time
+import re
 from urllib.request import urlopen, Request
 
 # start page for getting information
@@ -62,14 +63,25 @@ COUNTRIES = get_tags_info(COUNTRY_TAG, EXAMPLE_PAGE, 11)  # third argument is ad
 COUNTRIES_DICT = {'0': COUNTRIES}
 
 # iterates through pages and adds countries on the page to the list of countries
-for page_number in range(1, 26):
-    time.sleep(random.randint(1, 5))
-    next_page = BASE_URL + str(page_number)
-    EXAMPLE_PAGE = get_page_from_server(next_page)
-    # third argument is additional characters
-    current_countries = get_tags_info(COUNTRY_TAG, EXAMPLE_PAGE, 11)
-    COUNTRIES.extend(current_countries)
-    COUNTRIES_DICT[str(page_number)] = current_countries
+CHANGE_PAGE_TAG_RESULT = re.search(r'<a href="/places/default/index/\d{1,2}">Next',
+                                   get_page_from_server(BASE_URL))
+CHECKER = True
+COUNTER = 1
+while CHECKER:
+    try:
+        EXAMPLE_PAGE.find(CHANGE_PAGE_TAG_RESULT.group(0))
+        time.sleep(random.randint(1, 2))
+        NEXT_PAGE = BASE_URL + str(COUNTER)
+        EXAMPLE_PAGE = get_page_from_server(NEXT_PAGE)
+        # third argument is additional characters
+        CURRENT_COUNTRIES = get_tags_info(COUNTRY_TAG, EXAMPLE_PAGE, 11)
+        COUNTRIES.extend(CURRENT_COUNTRIES)
+        COUNTRIES_DICT[str(COUNTER)] = CURRENT_COUNTRIES
+        COUNTER += 1
+        CHANGE_PAGE_TAG_RESULT = re.search(r'<a href="/places/default/index/\d{1,2}">Next',
+                                           get_page_from_server(NEXT_PAGE))
+    except AttributeError:
+        CHECKER = False
 
 print(COUNTRIES)
 
