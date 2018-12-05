@@ -3,7 +3,7 @@
 from os import listdir, getcwd
 
 
-def current_files_directories(path: str=getcwd()):
+def current_files_directories(path: str = getcwd()):
     """Print the list of files and directories.
     Print the list of files and directories for the entered path
     otherwise print result for the current working directory.
