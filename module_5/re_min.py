@@ -24,8 +24,8 @@ answer_2 = input('Enter your email address: ')
 # Format for the phone number: (xxx) xxx - xxxx
 answer_3 = input('Enter your phone number: ')
 phone_number_regex = re.compile(r'\(\d\d\d\)\s\d\d\d\s-\s\d\d\d\d')
+phone_number = phone_number_regex.search(answer_3)
 try:
-    phone_number = phone_number_regex.search(answer_3)
     print(f'The phone number {phone_number.group()} '
           f'is in the correct format.')
 except AttributeError:
