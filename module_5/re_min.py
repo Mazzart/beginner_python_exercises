@@ -6,13 +6,18 @@ import re
 # Task 1 - Say hello to a user using the typed name
 # --------------------------------------------------------------------
 # Format for answer_1: my name is ... or ... is my name
-#answer_1 = input('What is your name? ')
-# name =
-#print(f'Hello {name}.')
+# Your name should begin with a capital letter.
+answer_1 = input('What is your name? ')
+name = re.search(r'[A-Z]\w*', answer_1)
+try:
+    print(f'Hello {name.group()}.')
+except AttributeError:
+    print(f'Please, reply in the correct format.')
 # --------------------------------------------------------------------
 # Task 2 - Check email
 # --------------------------------------------------------------------
-#answer_2 = input('Enter your email address: ')
+# Format for the email address: simple@example.com
+answer_2 = input('Enter your email address: ')
 # --------------------------------------------------------------------
 # Task 3 - Check phone number
 # --------------------------------------------------------------------
