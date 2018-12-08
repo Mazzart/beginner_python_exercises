@@ -21,7 +21,8 @@ answer_3 = input('Enter your phone number: ')
 phone_number_regex = re.compile(r'\(\d\d\d\)\s\d\d\d\s-\s\d\d\d\d')
 try:
     phone_number = phone_number_regex.search(answer_3)
-    print(f'Your phone number is: {phone_number.group()}')
+    print(f'The phone number {phone_number.group()} '
+          f'is in the correct format.')
 except AttributeError:
     print('Please, enter your phone number in the correct format.')
 # --------------------------------------------------------------------
