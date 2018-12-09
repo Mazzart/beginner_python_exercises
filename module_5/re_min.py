@@ -18,6 +18,9 @@ except AttributeError:
 # --------------------------------------------------------------------
 # Format for the email address: simple@example.com
 answer_2 = input('Enter your email address: ')
+# regex expression based on valid email examples from wiki
+if not re.match(r'(^[a-z0-9.+-]+@[a-z0-9-]+\.[a-z]+$)', answer_2):
+    print('Please, check entered email.')
 # --------------------------------------------------------------------
 # Task 3 - Check phone number
 # --------------------------------------------------------------------
