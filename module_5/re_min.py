@@ -36,3 +36,7 @@ except AttributeError:
 # --------------------------------------------------------------------
 # Task 4 - Find tag <title> in the file and print text inside
 # --------------------------------------------------------------------
+with open('test.html', 'r') as test:
+    test_into_string = test.read()
+    title_regex = r'<title>(.*?)</title>'
+    print(re.findall(title_regex, test_into_string)[0])
