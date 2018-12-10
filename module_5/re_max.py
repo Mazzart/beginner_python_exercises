@@ -19,7 +19,7 @@ while True:
     else:
         passwords.append(password)
 
-password_regex = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,6}$'
+password_regex = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[*#+@])[a-zA-Z\d*#+@]{4,6}$'
 prog = re.compile(password_regex)
 for password in passwords:
     if prog.match(password):
