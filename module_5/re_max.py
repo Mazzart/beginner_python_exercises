@@ -19,6 +19,12 @@ while True:
     else:
         passwords.append(password)
 
+password_regex = r'^[0-9]{4,6}$'
+prog = re.compile(password_regex)
+for password in passwords:
+    if prog.match(password):
+        verified_passwords.append(password)
+
 if not verified_passwords:
     print('You need to thinks about safer passwords.')
 elif len(verified_passwords) == 1:
