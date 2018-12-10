@@ -8,3 +8,12 @@ Write the program to check the password security.
 
 import re
 
+passwords = []
+while True:
+    password = input('To exit the program enter - stop'
+                     'Enter your password: ')
+    if password == 'stop':
+        break
+    else:
+        passwords.append(password)
+
