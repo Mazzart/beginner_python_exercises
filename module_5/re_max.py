@@ -9,6 +9,8 @@ Write the program to check the password security.
 import re
 
 passwords = []
+verified_passwords = []
+
 while True:
     password = input('To exit the program enter - stop\n'
                      'Enter your password: ')
@@ -17,3 +19,11 @@ while True:
     else:
         passwords.append(password)
 
+if not verified_passwords:
+    print('You need to thinks about safer passwords.')
+elif len(verified_passwords) == 1:
+    print(f'The following password is secure: {verified_passwords[0]}')
+else:
+    print(f'The following passwords are secure:')
+    for password in verified_passwords:
+        print(password)
