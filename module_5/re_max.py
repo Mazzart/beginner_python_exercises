@@ -10,7 +10,7 @@ import re
 
 passwords = []
 while True:
-    password = input('To exit the program enter - stop'
+    password = input('To exit the program enter - stop\n'
                      'Enter your password: ')
     if password == 'stop':
         break
